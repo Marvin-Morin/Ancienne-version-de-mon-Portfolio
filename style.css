@@ -1,0 +1,353 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+
+{
+    background-color: rgb(0, 0, 0);
+    font-family: 'Neuton Extralight', arial;
+    overflow-x: hidden;
+}
+
+/*  Boutton passer  */
+
+#passer {
+    display: flex;
+    margin: 20px 20px 0 auto;
+    right: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: black;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.753);
+    color: white;
+    cursor: pointer;
+    transition: .8s;
+    border: none;
+    position: fixed;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+#passer:hover {
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.705);
+    color: black;
+    border: none;
+    padding: 11px;
+}
+
+/*  contenu accueil  */
+
+.Typewriter__cursor {
+    color: rgba(0, 0, 255, 0.774) ;
+    width: 1px;
+    font-weight: 100;
+}
+
+#contenuaccueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    max-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+#contenuaccueil img {
+    border-radius: 50%;
+    width: clamp(200px, 2vw, 100px);
+    display: flex;
+    margin: 50px auto 50px auto;
+    object-position: center;
+    box-shadow: 0 0 40px rgba(0, 0, 255, 0.63);
+    border: 3px solid rgba(255, 255, 255, 0.767);
+}
+
+h1 {
+    font-size: calc(0.8rem + 3vw);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    text-align: center;
+    margin: auto;
+    font-weight: lighter;
+    max-width: 95vw;
+    padding: 15px;
+    word-wrap: break-word;
+    letter-spacing: 2px;
+}
+
+#H1AccueilPassez {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: .8s ease-in-out;
+}
+
+/*  Partie bouton  */
+
+.container {
+    width: 80vw;
+    height: 50vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    opacity: 1;
+    margin-top: 90px;
+    padding: 10px;
+}
+
+
+.radial {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    animation-name: anim0pen;
+    animation-duration: 0.7s;
+}
+
+.btn p {
+    visibility: hidden;
+    background-color: transparent;
+    font-size: calc(0.5rem + 0.2vw);
+    width: max-content;
+    color: white;
+}
+
+.btn p.droite {
+    display: flex;
+    top: 130%;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    left: 100%;
+    top: auto;
+    margin-left: 20px;
+}
+
+.btn p#haut {
+    display: flex;
+    bottom: 130%;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.btn p#bas {
+    display: flex;
+    top: 130%;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.btn p.gauche {
+    display: flex;
+    top: 130%;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    right: 100%;
+    top: auto;
+    margin-right: 20px;
+    width: max-content;
+    text-align: center;
+}
+
+a.btn:hover>p {
+    display: flex;
+    visibility: visible;
+    transform: scale(1);
+    transform-origin: center;
+}
+
+.visiblePHover {
+    transform: scale(0);
+    transition: transform .4s ease-out;
+}
+
+
+
+.close {
+    animation-name: animClose;
+    animation-duration: 0.7s;
+    display: flex;
+}
+
+.open {
+    animation-name: anim0pen;
+    animation-duration: 0.7s;
+    display: flex;
+}
+
+
+@keyframes anim0pen {
+    from {
+        scale : 0;
+        transform: rotate(-180deg);
+    }
+
+    to {
+        scale: 100%;
+        transform: rotate(0);
+    }
+}
+
+@keyframes animClose {
+    from {
+        scale : 100%;
+        transform: rotate(0deg);
+    }
+
+    to {
+        scale: 0;
+        transform: rotate(180deg);
+    }
+
+
+}
+
+
+.btn {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 0, 255, 0.63);
+    box-shadow: 0 0 10px ;
+    color: rgba(0, 0, 255, 0.63);
+    font-size: calc(0.5rem + 1vw);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+a:hover, .btn:hover {
+    transform: scale(150%);
+    box-shadow: 0 0 25px rgba(0, 0, 255, 0.63);
+}
+
+#open {
+    display: block;
+    z-index: 1;
+    background-color: #000;
+    border: 3px solid rgb(0, 215, 0);
+    color: rgb(0, 215, 0);
+    box-shadow: 0 0 10px rgb(0, 215, 0);
+    font-size: 10px;
+} 
+
+#close {
+    display: none;
+    z-index: 1;
+    background-color: #000;
+    border: 3px solid red;
+    color: red;
+    box-shadow: 0 0 10px red;
+    transition: .2s;
+    font-size: 10px;
+}
+
+#close:hover {
+    color: red;
+    border: 3px solid red;
+    box-shadow: none;
+}
+
+.w {
+    left: -45px;
+}
+
+.e {
+    right: -45px;
+}
+
+.s {
+    bottom: -45px;
+}
+
+.n {
+    top : -45px;
+}
+
+.ne {
+    right: 0;
+    top: 0;
+}
+
+.nw {
+    top: 0;
+    left: 0;
+}
+
+.se {
+    bottom: 0;
+    right: 0;
+}
+
+.sw {
+    bottom: 0;
+    left: 0;
+}
+
+.radial img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+}
+
+
+
+
+
+
+@media (max-width : 800px){
+    .container {
+        width: 80vw;
+        height: 50vh;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        opacity: 1;
+        margin-top: 100px;
+        padding: 10px;
+    }
+
+    .btn p {
+        display: none !important;
+    }
+}

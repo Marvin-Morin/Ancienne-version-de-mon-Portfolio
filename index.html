@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <!--  Favicon  -->
+
+    <link rel="icon" href="/ressources/images/Marvin.jpg">
+
+    <!--  FONT  -->
+
+    <link href="https://fr.allfont.net/allfont.css?fonts=neuton-regular" rel="stylesheet" type="text/css" />
+    <link href="https://fr.allfont.net/allfont.css?fonts=neuton-extralight" rel="stylesheet" type="text/css" />
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Marvin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!--  Boutton passer l'animation de la page d'accueil  -->
+
+    <button id="passer">Passer</button>
+
+
+    <!--  Page accueil  -->
+
+    <section id="contenuaccueil">
+
+        <img id="imagemarvin" class="reveal" src="ressources/images/Marvin.jpg" alt="">
+
+        <h1 id="H1Accueil">Bienvenue sur le portfolio de <br> Marvin</h1>
+
+    </section>
+
+
+    <!--  Bouttons jouer  -->
+
+    <div class="container reveal">
+
+        <button class="btn" id="open">Ouvrir</button>
+        <button class="btn" id="close">Fermer</button>
+        
+        <div class="radial">
+
+            <a class="btn w" href="Front-endCours/index.html" target="_blank"><img src="/ressources/icons/logoFront.png" alt="mon travail en front"><p class="gauche visiblePHover">Mon travail <br> en front</p></a> 
+
+            <a class="btn e"><img src="/ressources/icons/game.png" alt="jeux"><p class="droite visiblePHover">Jeux</p></a>
+            <a class="btn s"><img src="/ressources/icons/moi.png" alt="ma presentation"><p id="bas" class="visiblePHover">Moi</p></a>
+            <a class="btn n"><img src="/ressources/icons/mescompetences.png" alt="Mes compétences"><p id="haut" class="visiblePHover">Mes compétences</p></a>
+            
+            <a class="btn ne" href="/ressources/CV/CV Marvin Morin 2022.pdf" target="_blank"><img src="/ressources/icons/cv.png" alt=""><p class="droite visiblePHover">Mon CV</p></a>
+            <a class="btn se" href="https://www.linkedin.com/in/marvin-morin-5b15291b3/" target="_blank"><img src="/ressources/icons/linkedin.png" alt="linkedin visiblePHover"><p class="droite visiblePHover">Linkedin</p></a>
+            <a class="btn sw"><img src="/ressources/icons/blogger.png" alt="blog"><p class="gauche visiblePHover">Blog</p></a>
+            <a class="btn nw"><img src="/ressources/icons/github.png" alt="github"><p class="gauche visiblePHover">Github</p></a>
+        </div>
+    </div>
+    
+
+    
+
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
