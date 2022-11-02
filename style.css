@@ -1,18 +1,79 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-transform: none;
 }
 
-body
+a {
+    text-transform: none;
+    color: inherit;
+}
 
-{
-    background-color: rgb(0, 0, 0);
+/* Je personnalise ma barre de scroll */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid transparent(0, 0, 0);
+    /* creates padding around scroll thumb */
+}
+
+
+
+body {
+    background-color: rgb(190, 190, 190);
     font-family: 'Neuton Extralight', arial;
-    overflow-x: hidden;
+    max-height: 100vh;
 }
 
-/*  Boutton passer  */
+
+/* Le background animé */
+.background--custom {
+    background-color: #FFFFFF;
+    width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    filter: blur(1.5rem);
+    background-repeat: repeat;
+}
+
+
+/* Le background animé */
+canvas#canvas {
+
+    z-index: -1;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    transform: rotate(-12deg) scale(2) translateY(-0%);
+    --gradient-color-1: #59cc6f;
+    --gradient-color-2: #cd07b7;
+    --gradient-color-3: #5023c3;
+    --gradient-color-4: #0c03c3;
+    --gradient-speed: 0.000006;
+    filter: blur(1.5rem);
+    background-repeat: repeat;
+}
+
+
+
+/*  Bouton passer  */
 
 #passer {
     display: flex;
@@ -34,7 +95,7 @@ body
 #passer:hover {
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.705);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.247);
     color: black;
     border: none;
     padding: 11px;
@@ -42,12 +103,14 @@ body
 
 /*  contenu accueil  */
 
+/* Le curseur de la partie animation */
 .Typewriter__cursor {
-    color: rgba(0, 0, 255, 0.774) ;
+    color: rgb(0, 0, 0);
     width: 1px;
     font-weight: 100;
 }
 
+/* Tout mon contenu de ma page d'accueil */
 #contenuaccueil {
     display: flex;
     justify-content: center;
@@ -59,16 +122,18 @@ body
     position: relative;
 }
 
+/* Ma tête */
 #contenuaccueil img {
     border-radius: 50%;
-    width: clamp(200px, 2vw, 100px);
-    display: flex;
+    width: clamp(80px, 12rem, 20rem);
     margin: 50px auto 50px auto;
     object-position: center;
-    box-shadow: 0 0 40px rgba(0, 0, 255, 0.63);
+    box-shadow: 0 0 40px rgba(0, 0, 255, 0.429);
     border: 3px solid rgba(255, 255, 255, 0.767);
+    cursor: no-drop;
 }
 
+/* Mon titre animé */
 h1 {
     font-size: calc(0.8rem + 3vw);
     color: rgb(255, 255, 255);
@@ -85,26 +150,26 @@ h1 {
     letter-spacing: 2px;
 }
 
-#H1AccueilPassez {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
+/* L'animation qui va faire apparaitre mon image de -100% à 0 d'opacité */
 .reveal {
     opacity: 0;
     transform: translateY(-100px);
 }
 
+/* à 0% avec une opacité de 1 après 3/10s définis dans ma fonction setTimeOut de mon javascript */
 .visible {
     opacity: 1;
     transform: translateY(0);
     transition: .8s ease-in-out;
 }
 
+
+
 /*  Partie bouton  */
 
+
+
+/* La partie qui contient tout mes boutons*/
 .container {
     width: 80vw;
     height: 50vh;
@@ -113,11 +178,11 @@ h1 {
     justify-content: center;
     margin: auto;
     opacity: 1;
-    margin-top: 90px;
+    margin-top: 50px;
     padding: 10px;
 }
 
-
+/* La partie qui contient mes 8 boutons */
 .radial {
     position: relative;
     display: none;
@@ -131,6 +196,7 @@ h1 {
     animation-duration: 0.7s;
 }
 
+/* Le texte qui décrit mes boutons */
 .btn p {
     visibility: hidden;
     background-color: transparent;
@@ -139,6 +205,7 @@ h1 {
     color: white;
 }
 
+/* Le texte qui décrit mes boutons de ma partie droite */
 .btn p.droite {
     display: flex;
     top: 130%;
@@ -150,14 +217,17 @@ h1 {
     margin-left: 20px;
 }
 
+/* Le texte qui décrit mes boutons de ma partie haute */
 .btn p#haut {
     display: flex;
     bottom: 130%;
     padding: 10px;
     border-radius: 5px;
     position: absolute;
+    text-align: center;
 }
 
+/* Le texte qui décrit mes boutons de ma partie bas */
 .btn p#bas {
     display: flex;
     top: 130%;
@@ -166,6 +236,7 @@ h1 {
     position: absolute;
 }
 
+/* Le texte qui décrit mes boutons de ma partie gauche */
 .btn p.gauche {
     display: flex;
     top: 130%;
@@ -179,6 +250,7 @@ h1 {
     text-align: center;
 }
 
+/* Le texte qui décrit mes boutons s'affichent au survole */
 a.btn:hover>p {
     display: flex;
     visibility: visible;
@@ -186,29 +258,30 @@ a.btn:hover>p {
     transform-origin: center;
 }
 
+/* L'animation de mon texte au survole */
 .visiblePHover {
     transform: scale(0);
     transition: transform .4s ease-out;
 }
 
-
-
+/* Delay Animation de ma div radial à la fermeture */
 .close {
     animation-name: animClose;
     animation-duration: 0.7s;
     display: flex;
 }
 
+/* Delay Animation de ma div radial à l'ouverture */
 .open {
     animation-name: anim0pen;
     animation-duration: 0.7s;
     display: flex;
 }
 
-
+/* La création de l'animation ouverture */
 @keyframes anim0pen {
     from {
-        scale : 0;
+        scale: 0;
         transform: rotate(-180deg);
     }
 
@@ -218,9 +291,11 @@ a.btn:hover>p {
     }
 }
 
+
+/* La création de l'animation fermeture */
 @keyframes animClose {
     from {
-        scale : 100%;
+        scale: 100%;
         transform: rotate(0deg);
     }
 
@@ -229,10 +304,9 @@ a.btn:hover>p {
         transform: rotate(180deg);
     }
 
-
 }
 
-
+/* Tous mes liens qui ont la class btn */
 .btn {
     position: absolute;
     height: 80px;
@@ -240,7 +314,7 @@ a.btn:hover>p {
     background-color: transparent;
     border-radius: 50%;
     border: 3px solid rgba(0, 0, 255, 0.63);
-    box-shadow: 0 0 10px ;
+    box-shadow: 0 0 10px;
     color: rgba(0, 0, 255, 0.63);
     font-size: calc(0.5rem + 1vw);
     font-weight: 600;
@@ -253,13 +327,13 @@ a.btn:hover>p {
     align-items: center;
 }
 
-
-
-a:hover, .btn:hover {
+/* L'ffet de mes boutons au moment du survol */
+.btn:hover {
     transform: scale(150%);
     box-shadow: 0 0 25px rgba(0, 0, 255, 0.63);
 }
 
+/* Mon bouton ouverture */
 #open {
     display: block;
     z-index: 1;
@@ -268,8 +342,9 @@ a:hover, .btn:hover {
     color: rgb(0, 215, 0);
     box-shadow: 0 0 10px rgb(0, 215, 0);
     font-size: 10px;
-} 
+}
 
+/* Mon bouton fermeture */
 #close {
     display: none;
     z-index: 1;
@@ -281,12 +356,14 @@ a:hover, .btn:hover {
     font-size: 10px;
 }
 
+/* Mon bouton fermeture au moment du survole */
 #close:hover {
     color: red;
     border: 3px solid red;
     box-shadow: none;
 }
 
+/* La dispositions de tous mes liens qui ont la class btn */
 .w {
     left: -45px;
 }
@@ -300,7 +377,7 @@ a:hover, .btn:hover {
 }
 
 .n {
-    top : -45px;
+    top: -45px;
 }
 
 .ne {
@@ -323,6 +400,7 @@ a:hover, .btn:hover {
     left: 0;
 }
 
+/* La div qui contient mes 8 liens (images) principales */
 .radial img {
     width: 80px;
     height: 80px;
@@ -330,24 +408,387 @@ a:hover, .btn:hover {
 }
 
 
+/* Toute ma page d'accueil */
+.page1 {
+    transform: scale(1);
+    z-index: 1;
+}
+
+
+
+/* Mon animation de fermeture*/
+.out {
+    transform: scale(0);
+}
+
+/* Mon animation d'ouverture*/
+.in {
+    transition: .3s ease-out;
+    transform: scale(1);
+}
+
+/* Mon bouton retour de mes pages */
+.btnretour {
+    background-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.471);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.65);
+    min-width: 100vw;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    border: 0.5px solid rgba(255, 255, 255, 0.193);
+    cursor: pointer;
+    position: relative;
+    top: 0;
+}
+
+/* Mon bouton retour au survol de la  souris */
+.btnretour:hover {
+    color: rgb(0, 0, 0);
+    transition: .3s ease-in-out;
+}
+
+
+
+/*  mes compétences  */
+
+#mescompetences {
+    max-height: 100vh;
+    max-width: 100vw;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    margin: auto;
+    display: none;
+}
+
+
+/*  Mon CV  */
+#moncv {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    margin-bottom: auto;
+    position: absolute;
+    display: none;
+}
+
+
+/*  Moi  */
+#moi {
+    max-height: 100vh;
+    max-width: 100vw;
+    top: 0;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: none;
+    overflow: hidden;
+}
+
+/* Mes cartes dans ma partie "moi" */
+.carte {
+    width: 80vw;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.372);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.818);
+    position: relative;
+    margin: 5vh auto;
+    justify-content: center;
+}
+
+/* Animation 1 de ma première carte de ma section Moi */
+@keyframes AnimationCarte {
+    to {
+        transform: scale(1);
+    }
+
+    from {
+        transform: scale(0);
+    }
+}
+
+@keyframes Animation1CarteOut {
+    to {
+        opacity: 0;
+    }
+
+    from {
+        opacity: 1;
+    }
+}
+
+/* Animation 2 de ma deuxième carte de ma section Moi */
+@keyframes Animation2Carte {
+    to {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+    from {
+        transform: rotate(180deg);
+        opacity: 0;
+    }
+}
+
+
+@keyframes Animation2CarteOut {
+    to {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    from {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+
+/* Animation 3 de ma deuxième carte de ma section Moi */
+@keyframes Animation2CarteOut {
+    to {
+        transform: translateY(150%);
+        opacity: 0;
+    }
+
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation 2 de ma troisième carte de ma section Moi */
+@keyframes Animation3Carte {
+    to {
+        opacity: 1;
+    }
+
+    from {
+        opacity: 0;
+    }
+}
+
+
+@keyframes Animation3CarteOut {
+    to {
+        opacity: 0;
+    }
+
+    from {
+        opacity: 1;
+    }
+}
+
+
+#premierecarte {
+    animation-name: AnimationCarte;
+    animation-duration: 2s;
+    display: none;
+}
+
+#deuxiemecarte {
+    animation-name: Animation2Carte;
+    animation-duration: 2s;
+    display: none;
+}
+
+#troisiemecarte {
+    animation-name: Animation3Carte;
+    animation-duration: 2s;
+    display: none;
+}
+
+#troisiemecarte img, #quatriemecarte img {
+    object-position: center;
+}
+
+#quatriemecarte {
+    animation-name: AnimationCarte;
+    animation-duration: 2s;
+    display: none;
+}
+
+/*  Les images dans mes cartes */
+.carte img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.818);
+    object-position: right;
+    object-fit: cover;
+}
+
+/* Les paragraphes dans mes cartes */
+
+
+/* Le paragraphe de ma première carte */
+p#pcarte {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.745);
+}
+
+
+/* Le paragraphe de ma deuxième carte */
+p#pcarte2 {
+    color: rgb(0, 128, 0);
+    font-weight: bold;
+    bottom: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* Le paragraphe de ma troixième carte */
+p#pcarte3 {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+/* Tous les paragraphes de mes cartes */
+#moi p {
+    position: absolute;
+    font-weight: lighter;
+    font-size: calc(0.8rem + 2vw);
+    width: auto;
+    line-height: 2em;
+    text-align: center;
+    animation-name: AnimationCarte;
+    animation-duration: 3.5s;
+    padding: 40px;
+}
+
+/* Ma section blog */
+#blog {
+    display: none;
+    top: 0;
+    max-height: 100vh;
+    max-width: 100vw;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: none;
+    overflow: hidden;
+
+}
+
+/* Toutes ma section news */
+#news {
+    overflow-y: scroll;
+}
+
+/* Une news */
+.nouvelle {
+    width: 90vw;
+    background-color: rgba(255, 255, 255, 0.594);
+    color: #000;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 50px;
+    border-radius: 5px;
+    margin: 10px auto;
+    flex-direction: column;
+}
+
+/* Mon contenu de chaque news */
+.textnouvelle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Mon paragraphe de ma news*/
+.actu {
+    order: 2;
+    margin: 10px;
+    justify-content: center;
+}
+
+/* Ma tête à gauche */
+.nouvelle img {
+    width: 50px;
+    border-radius: 50%;
+    justify-content: flex-start;
+}
+
+/* Mes images dans mon contenu "nouvelles" ainsi que les vidéos */
+img.imgnouvelle, .tiktok-embed {
+    width: clamp(100px, 20em, 25em) !important;
+    border-radius: 0;
+    order: 1;
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Les dates en dessous de chaque news */
+.date {
+    display: flex;
+    width: 90vw;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/* Les paragraphes de ma div "date" en dessous de chaque news */
+.date p.date {
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    font-size: calc(0.3rem + 0.5vw);
+}
 
 
 
 
-@media (max-width : 800px){
+
+/* Media queries */
+
+@media (max-width : 800px) {
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+
     .container {
-        width: 80vw;
+        width: 67vw;
         height: 50vh;
         display: none;
         align-items: center;
         justify-content: center;
-        margin: auto;
+        margin: 70px auto 0 auto;
         opacity: 1;
-        margin-top: 100px;
-        padding: 10px;
+        padding: 5px;
     }
 
+    /* Ma photo de profil diminue de taille et remonte */
+    #contenuaccueil img {
+        width: 150px;
+        margin-top: -7px;
+    }
+
+    /* Les descriptions de mes 8 boutons disparaissent */
     .btn p {
         display: none !important;
+    }
+
+    .nouvelle {
+        max-width: 100vw !important;
     }
 }
