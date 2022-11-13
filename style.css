@@ -608,7 +608,8 @@ a.btn:hover>p {
     display: none;
 }
 
-#troisiemecarte img, #quatriemecarte img {
+#troisiemecarte img,
+#quatriemecarte img {
     object-position: center;
 }
 
@@ -691,7 +692,7 @@ p#pcarte3 {
 
 /* Une news */
 .nouvelle {
-    width: 90vw;
+    width: 95vw;
     background-color: rgba(255, 255, 255, 0.594);
     color: #000;
     padding: 20px;
@@ -725,7 +726,8 @@ p#pcarte3 {
 }
 
 /* Mes images dans mon contenu "nouvelles" ainsi que les vidéos */
-img.imgnouvelle, .tiktok-embed {
+img.imgnouvelle,
+.tiktok-embed {
     width: clamp(100px, 20em, 25em) !important;
     border-radius: 0;
     order: 1;
@@ -733,6 +735,8 @@ img.imgnouvelle, .tiktok-embed {
     margin: auto;
     border-radius: 5px;
     margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 /* Les dates en dessous de chaque news */
@@ -789,6 +793,58 @@ img.imgnouvelle, .tiktok-embed {
     }
 
     .nouvelle {
-        max-width: 100vw !important;
+        max-width: 95vw !important;
     }
+
+    .tiktok-embed {
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 80vw !important;
+        min-width: 80vw !important;
+       padding: 80px 180px !important;
+    }
+}
+
+@media (max-width : 780px) {
+    .tiktok-embed {
+       padding: 80px 130px !important;
+    }
+}
+
+@media (max-width : 650px) {
+    .tiktok-embed {
+        padding: 80px 10px !important;
+     }
+ }
+
+
+
+@media (max-width : 350px) {
+
+    /* Mon contenu de chaque news */
+    .textnouvelle {
+        display: flex;
+        flex-direction: column !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px !important;
+    }
+
+    .actu {
+        max-width: 90vw !important;
+        text-align: justify;
+    }
+
+    .tiktok-embed {
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 80vw !important;
+        min-width: 80vw !important;
+        margin-top: 10px !important;
+        padding: 0px !important;
+    }
+
 }
